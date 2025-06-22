@@ -1,0 +1,65 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+/>
+<head>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<nav
+  class="navbar fixed-top navbar-expand-md bg-body-light sticky-top bg-white border-bottom"
+>
+  <a href="/listings"><i class="fa-solid fa-compass"></i></a>
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link nav-all-listing" href="/listings">All Listings</a>
+      </div>
+    </div>
+
+    <form
+      novalidate
+      method="post"
+      action="/filters/"
+      class="d-flex"
+      role="search"
+    >
+      <input
+        class="form-control me-2 nav-search"
+        type="search"
+        placeholder="search city, country or keyword"
+        aria-label="Search"
+        name="findListing"
+        required
+      />
+      <button class="btn btn-outline-success nav-search-btn" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>&nbsp; Search
+      </button>
+    </form>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto me-3">
+        <a class="nav-link nav-host" href="/listings/new">Become a Host</a>
+        <%if(currUser){%>
+        <a class="nav-link nav-logout" href="/logout">logOut</a>
+        <%}%> <%if(!currUser){%>
+        <a class="nav-link nav-signup" aria-current="page" href="/signup"
+          >SignUp</a
+        >
+        <a class="nav-link nav-login" href="/login">logIn</a>
+        <%}%>
+      </div>
+    </div>
+  </div>
+</nav>

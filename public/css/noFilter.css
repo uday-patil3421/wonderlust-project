@@ -1,0 +1,44 @@
+/* nofilter.ejs */
+
+.body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.no-results {
+  text-align: center;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgb(216, 214, 214);
+  max-width: 90%;
+  width: 400px;
+  margin-bottom: 6rem;
+}
+.no-results h1 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+.no-results p {
+  margin-bottom: 1.5rem;
+  color: #666;
+}
+.no-results button {
+  margin: 0.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+.no-filter-btn {
+  background-color: #131313;
+  color: white;
+  height: 2.5rem;
+  border-radius: 8px !important;
+}

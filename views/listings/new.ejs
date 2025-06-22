@@ -1,0 +1,137 @@
+<% layout("layouts/boilerPlate.ejs") %>
+<body>
+  <div class="row">
+    <div class="col-7 offset-2">
+      <br /><br />
+      <h3>Create a New Listing</h3>
+      <form
+        novalidate
+        class="needs-validation"
+        method="POST"
+        action="/listings"
+        enctype="multipart/form-data"
+      >
+        <input type="hidden" name="originalUrl" value="<%=redirectUrl%>" />
+        <div class="mb-2">
+          <label for="title" class="form-lable"
+            ><span class="form-lable-text">title</span></label
+          >
+          <input
+            name="listing[title]"
+            placeholder="enter title"
+            type="text"
+            class="form-control"
+            pattern=".*\S.*"
+            required
+          />
+          <div class="invalid-feedback">Please enter a valid title.</div>
+        </div>
+
+        <div class="mb-2">
+          <label for="description" class="form-lable"
+            ><span class="form-lable-text">description</span></label
+          >
+          <textarea
+            name="listing[description]"
+            placeholder="enter description"
+            class="form-control"
+            pattern=".*\S.*"
+            required
+          ></textarea>
+          <div class="invalid-feedback">Please enter a valid description.</div>
+        </div>
+
+        <div class="mb-2">
+          <label for="image" class="form-lable"
+            ><span class="form-lable-text"
+              ><span class="form-lable-text">upload image</span></span
+            ></label
+          >
+          <input
+            name="listing[image]"
+            placeholder="choose image"
+            type="file"
+            class="form-control"
+            pattern=".*\S.*"
+            required
+          />
+        </div>
+
+        <div class="row">
+          <div class="mb-2 col-md-4 col-4">
+            <label for="price" class="form-lable"
+              ><span class="form-lable-text">price</span></label
+            >
+            <input
+              type="number"
+              name="listing[price]"
+              placeholder="enter price"
+              class="form-control"
+              pattern=".*\S.*"
+              required
+            />
+            <div class="invalid-feedback">Please enter a valid price.</div>
+          </div>
+
+          <div class="mb-2 col-4">
+            <label for="country" class="form-lable"
+              ><span class="form-lable-text">country/state</span></label
+            >
+            <input
+              name="listing[country]"
+              placeholder="enter country"
+              type="text"
+              class="form-control"
+              pattern=".*\S.*"
+              required
+            />
+            <div class="invalid-feedback">Please enter a valid country.</div>
+          </div>
+          <div class="mb-2 col-md-4 col-sm-8">
+            <label for="filters" class="form-lable"
+              ><span class="form-lable-text">add keyword</span></label
+            >
+            <select
+              name="listing[filter]"
+              id="selector"
+              placeholder="select keywords"
+              class="form-control"
+              pattern=".*\S.*"
+              required
+            >
+              <option value="trending">trending</option>
+              <option value="building">building</option>
+              <option value="skyline">skyline</option>
+              <option value="oasis">oasis</option>
+              <option value="bed">bed</option>
+              <option value="nest">nest</option>
+              <option value="vista">vista</option>
+              <option value="forest">forest</option>
+              <option value="water">water</option>
+              <option value="hotel">hotel</option>
+              <option value="sunset">sunset</option>
+            </select>
+            <div class="invalid-feedback">Please add a valid keyword.</div>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="location" class="form-lable"
+            ><span class="form-lable-text">location</span></label
+          >
+          <input
+            name="listing[location]"
+            placeholder="enter location"
+            type="text"
+            class="form-control"
+            pattern=".*\S.*"
+            required
+          />
+          <div class="invalid-feedback">Please enter a valid location.</div>
+        </div>
+        <button class="btn btn-dark mb-2">Add</button> <br /><br />
+      </form>
+    </div>
+  </div>
+</body>
+<script src="/js/script.js"></script>

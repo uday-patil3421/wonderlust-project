@@ -1,0 +1,138 @@
+<%layout("/layouts/boilerPlate.ejs")%>
+
+<body>
+  <div class="row">
+    <div class="col-7 offset-2">
+      <h3 class="mt-3 mb-3">Edit your Listing</h3>
+
+      <form
+        novalidate
+        class="needs-validation"
+        method="POST"
+        action="/listings/<%= listing._id %>?_method=PUT"
+        enctype="multipart/form-data"
+      >
+        <input type="hidden" name="originalUrl" value="<%=redirectUrl%>" />
+        <div class="mt-2">
+          <label for="title" class="form-lable"><span class="form-lable-text">title</span></label>
+          <input
+            name="listing[title]"
+            value="<%= listing.title %>"
+            type="text"
+            class="form-control"
+            pattern=".*\S.*"
+            required
+          />
+          <div class="invalid-feedback">Please enter a valid title.</div>
+        </div>
+
+        <div class="mt-2">
+          <label for="description" class="form-lable"><span class="form-lable-text">discription</span></label>
+          <textarea
+            name="listing[description]"
+            class="form-control"
+            pattern=".*\S.*"
+            required
+          >
+          <%= listing.description %></textarea
+          >
+          <div class="invalid-feedback">Please enter a valid description.</div>
+        </div>
+
+        <div class="mt-2">
+          <label for="preimage" class="form-lable"><span class="form-lable-text">your original image</span></label>
+          <div id="preimage">
+            <a href="/listings/<%=listing._id%>">
+              <img
+                src="<%=listingImageUrl%>"
+                style="border-radius: 1rem; height: 200px; width: 250px"
+                alt="listing image"
+              />
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-2">
+          <label for="image" class="form-lable"><span class="form-lable-text">choose image</span></label>
+          <input name="listing[image]" class="form-control" type="file" />
+          <div class="invalid-feedback">Please enter a valid URL/link.</div>
+        </div>
+
+        <div class="row">
+          <div class="mt-2 col-md-4 col-4">
+            <label for="price" class="form-lable"><span class="form-lable-text">price</span></label>
+            <input
+              name="listing[price]"
+              value="<%= listing.price %>"
+              type="number"
+              class="form-control"
+              pattern=".*\S.*"
+              required
+            />
+            <div class="invalid-feedback">Please enter a valid price.</div>
+          </div>
+
+          <div class="mt-2 col-md-4 col-4">
+            <label for="country" class="form-lable"
+              ><span class="form-lable-text">country/state</span></label
+            >
+            <input
+              name="listing[country]"
+              value="<%= listing.country %>"
+              type="text"
+              class="form-control"
+              pattern=".*\S.*"
+              required
+            />
+            <div class="invalid-feedback">Please enter a valid country.</div>
+          </div>
+
+          <div class="mt-2 col-md-4 col-sm-8 col-4">
+            <label for="filters" class="form-lable"><span class="form-lable-text">add keyword</span></label>
+            <select
+              name="listing[filter]"
+              id="selector"
+              placeholder="select keywords"
+              class="form-control"
+              pattern=".*\S.*"
+              required
+            >
+              <option value="trending">trending</option>
+              <option value="building">building</option>
+              <option value="skyline">skyline</option>
+              <option value="oasis">oasis</option>
+              <option value="bed">bed</option>
+              <option value="nest">nest</option>
+              <option value="vista">vista</option>
+              <option value="forest">forest</option>
+              <option value="water">water</option>
+              <option value="hotel">hotel</option>
+              <option value="sunset">sunset</option>
+            </select>
+            <div class="invalid-feedback">Please enter a valid price.</div>
+          </div>
+        </div>
+
+        <div class="mt-2">
+          <label for="location" class="form-lable"><span class="form-lable-text">location</span></label
+            ></label>
+          <input
+            name="listing[location]"
+            value="<%= listing.location %>"
+            type="text"
+            class="form-control"
+            pattern=".*\S.*"
+            required
+          />
+          <div class="invalid-feedback">Please enter a valid location.</div>
+        </div>
+
+        <button class="btn btn-dark mt-3 mb-4">Edit</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+<script>
+  document.querySelector("#selector").value = "<%=listing.filter%>";
+</script>
